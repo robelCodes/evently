@@ -5,10 +5,12 @@ import BookingPage from "./pages/BookingPage";
 import MyBookingsPage from "./pages/MyBookingsPage";
 import Navbar from "./components/Navbar";
 
+
 function App() {
   return (
     <>
       <Navbar />
+      
 
       <Routes>
         <Route path="/" element={<EventsPage />} />
