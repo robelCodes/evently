@@ -1,18 +1,32 @@
 import { useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+
 
 function Hero({ onSearch }) {
   const inputRef = useRef(null)
-  const navigate = useNavigate()
+
 
   const handleSearch = () => {
     const value = inputRef.current.value.trim()
-    // if (value) onSearch(value)
+    onSearch(value)
+
   }
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') handleSearch()
   }
+
+  const handleChange = (e) => {
+    if (e.target.value === '') {
+      onSearch('')
+    }
+  }
+
+
+const handleClear = () => {
+  inputRef.current.value = ''
+  onSearch('')
+}
+
 
   return (
     <section className="hero">
@@ -40,6 +54,7 @@ function Hero({ onSearch }) {
             type="text"
             placeholder="Search events..."
             onKeyDown={handleKeyDown}
+            onChange={handleChange}
           />
           <button
             className="btn btn-primary"

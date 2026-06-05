@@ -18,12 +18,20 @@ const Filters = [
   { id: "over-50", label: "$50+" },
 ];
 
-function FilterBar() {
+function FilterBar({onClick}) {
+
+  const handleCategoryClick = (cat) => {
+    onClick(cat.id === 'all' ? '' : cat.label)
+  }
+
+
+
+
   return (
     <div className="filters-bar container">
       <div className="category-pills">
         {Categories.map((cat) => (
-          <button key={cat.id} className="category-pill">
+          <button onClick={() => handleCategoryClick(cat)} key={cat.id} className="category-pill">
             <span>{cat.icon}</span>
             {cat.label}
           </button>
@@ -31,7 +39,7 @@ function FilterBar() {
       </div>
       <div className="filters-right">
         {Filters.map((filter) => (
-          <button key={filter.id} className="btn btn-outline btn-sm">
+          <button onClick={() => onClick(filter.id)} key={filter.id} className="btn btn-outline btn-sm">
             {filter.label}
           </button>
         ))}

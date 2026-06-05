@@ -6,7 +6,7 @@ const EventCard = ({ event }) => {
 
     return (<div className="event-card">
 
-      {/* Image */}
+     
       <div className="event-card-image">
         <img src={event.image} alt={event.title} />
         <span className="event-card-category">{event.category}</span>
