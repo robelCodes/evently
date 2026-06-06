@@ -1,12 +1,16 @@
-
+import {useNavigate} from 'react-router-dom'
 
 const EventCard = ({ event }) => {
 
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/events/${event.id}`)
+  }
 
 
-    return (<div className="event-card">
+    return (<div className="event-card" onClick={handleCardClick}>
 
-     
       <div className="event-card-image">
         <img src={event.image} alt={event.title} />
         <span className="event-card-category">{event.category}</span>
@@ -37,7 +41,7 @@ const EventCard = ({ event }) => {
               ${event.ticketTypes[0].price}
             </div>
           </div>
-          <button className="btn btn-primary btn-sm">
+          <button className="btn btn-primary btn-sm" >
             Get Tickets
           </button>
         </div>

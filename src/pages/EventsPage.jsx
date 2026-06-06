@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import Hero from "../components/Hero";
 import FilterBar from "../components/FilterBar";
 import EventsGrid from "../components/EventsGrid";
-import StatsBar from "../components/StatsBar";
-import Footer from "../components/Footer";
+
 
 function EventsPage() {
   const [events, setEvents] = useState([]);
@@ -101,8 +100,7 @@ function EventsPage() {
         </div>
         <EventsGrid events={filteredEvents} />
       </div>
-      <StatsBar />
-      <Footer />
+      
     </>
   );
 }

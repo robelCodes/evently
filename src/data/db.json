@@ -26,6 +26,12 @@
                     "name": "VIP",
                     "price": 299,
                     "available": 20
+                },
+                {
+                    "id": "3",
+                    "name": "VVIP",
+                    "price": 499,
+                    "available": 5
                 }
             ]
         },

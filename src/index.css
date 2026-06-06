@@ -442,3 +442,14 @@ ul {
   }
 }
 
+/* Make the page always full height */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Push footer to bottom by making main grow */
+main {
+  flex: 1;
+}
