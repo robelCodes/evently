@@ -1,374 +1,452 @@
 {
-    "events": [
-        
+  "events": [
+    {
+      "id": "1",
+      "title": "React Conference 2024",
+      "description": "Annual React developers conference featuring the latest in React ecosystem, hooks, and server components. Join thousands of developers from around the world.",
+      "category": "Technology",
+      "date": "2026-07-15",
+      "time": "09:00 AM",
+      "location": "San Francisco, CA",
+      "venue": "Moscone Convention Center",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=200&fit=crop",
+      "organizerName": "Tech Events Inc",
+      "rating": 4.8,
+      "attending": 1200,
+      "ticketTypes": [
         {
-            "id": "1",
-            "title": "React Conference 2024",
-            "description": "Annual React developers conference featuring the latest in React ecosystem, hooks, and server components. Join thousands of developers from around the world.",
-            "category": "Technology",
-            "date": "2026-07-15",
-            "time": "09:00 AM",
-            "location": "San Francisco, CA",
-            "venue": "Moscone Convention Center",
-            "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=200&fit=crop",
-            "organizerName": "Tech Events Inc",
-            "rating": 4.8,
-            "attending": 1200,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "General",
-                    "price": 99,
-                    "available": 100
-                },
-                {
-                    "id": "2",
-                    "name": "VIP",
-                    "price": 299,
-                    "available": 20
-                },
-                {
-                    "id": "3",
-                    "name": "VVIP",
-                    "price": 499,
-                    "available": 5
-                }
-            ]
+          "id": "1",
+          "name": "General",
+          "price": 99,
+          "available": 100
         },
         {
-            "id": "2",
-            "title": "Summer Music Festival",
-            "description": "Three days of live music featuring top artists across multiple stages. Experience the best in pop, rock, and electronic music under the open sky.",
-            "category": "Music",
-            "date": "2026-08-10",
-            "time": "12:00 PM",
-            "location": "Austin, TX",
-            "venue": "Zilker Park",
-            "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=200&fit=crop",
-            "organizerName": "Live Nation",
-            "rating": 4.9,
-            "attending": 8500,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "General",
-                    "price": 89,
-                    "available": 500
-                },
-                {
-                    "id": "2",
-                    "name": "VIP",
-                    "price": 249,
-                    "available": 50
-                }
-            ]
+          "id": "2",
+          "name": "VIP",
+          "price": 299,
+          "available": 20
         },
         {
-            "id": "3",
-            "title": "NBA Finals Watch Party",
-            "description": "Watch the NBA Finals live on a giant screen with fellow basketball fans. Food, drinks, and giveaways throughout the night.",
-            "category": "Sports",
-            "date": "2026-06-12",
-            "time": "07:00 PM",
-            "location": "Chicago, IL",
-            "venue": "United Center Plaza",
-            "image": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=200&fit=crop",
-            "organizerName": "Sports Fanatics",
-            "rating": 4.6,
-            "attending": 3200,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "General",
-                    "price": 25,
-                    "available": 300
-                },
-                {
-                    "id": "2",
-                    "name": "Premium",
-                    "price": 75,
-                    "available": 100
-                }
-            ]
-        },
-        {
-            "id": "4",
-            "title": "Modern Art Exhibition",
-            "description": "A curated collection of contemporary artworks from emerging and established artists. Featuring paintings, sculptures, and digital installations.",
-            "category": "Arts",
-            "date": "2026-09-05",
-            "time": "10:00 AM",
-            "location": "New York, NY",
-            "venue": "MoMA",
-            "image": "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&h=200&fit=crop",
-            "organizerName": "Art World NYC",
-            "rating": 4.7,
-            "attending": 650,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "Adult",
-                    "price": 35,
-                    "available": 200
-                },
-                {
-                    "id": "2",
-                    "name": "Student",
-                    "price": 15,
-                    "available": 100
-                }
-            ]
-        },
-        {
-            "id": "5",
-            "title": "International Food Festival",
-            "description": "Taste cuisines from over 40 countries in one place. Over 200 food stalls, live cooking demonstrations, and cultural performances.",
-            "category": "Food",
-            "date": "2026-08-22",
-            "time": "11:00 AM",
-            "location": "Los Angeles, CA",
-            "venue": "Grand Park",
-            "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=200&fit=crop",
-            "organizerName": "Foodie Events Co",
-            "rating": 4.5,
-            "attending": 5400,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "General",
-                    "price": 15,
-                    "available": 1000
-                },
-                {
-                    "id": "2",
-                    "name": "VIP Tasting",
-                    "price": 85,
-                    "available": 150
-                }
-            ]
-        },
-        {
-            "id": "6",
-            "title": "Startup Pitch Night",
-            "description": "Watch 10 promising startups pitch to top investors. Network with founders, investors, and industry leaders after the pitches.",
-            "category": "Business",
-            "date": "2026-07-28",
-            "time": "06:00 PM",
-            "location": "Seattle, WA",
-            "venue": "Amazon HQ",
-            "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=200&fit=crop",
-            "organizerName": "StartupHub",
-            "rating": 4.4,
-            "attending": 420,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "General",
-                    "price": 49,
-                    "available": 200
-                },
-                {
-                    "id": "2",
-                    "name": "Investor",
-                    "price": 199,
-                    "available": 30
-                }
-            ]
-        },
-        {
-            "id": "7",
-            "title": "Yoga & Wellness Retreat",
-            "description": "A full day of yoga sessions, meditation workshops, and wellness talks. Reconnect with your mind and body in a peaceful outdoor setting.",
-            "category": "Wellness",
-            "date": "2026-09-14",
-            "time": "07:00 AM",
-            "location": "Denver, CO",
-            "venue": "Red Rocks Park",
-            "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=200&fit=crop",
-            "organizerName": "Zen Life Events",
-            "rating": 4.9,
-            "attending": 280,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "Day Pass",
-                    "price": 65,
-                    "available": 150
-                },
-                {
-                    "id": "2",
-                    "name": "Full Retreat",
-                    "price": 120,
-                    "available": 50
-                }
-            ]
-        },
-        {
-            "id": "8",
-            "title": "Hip Hop in the Park",
-            "description": "A free outdoor hip hop concert celebrating local artists and culture. Bring your friends and family for a day of great music and vibes.",
-            "category": "Music",
-            "date": "2026-08-03",
-            "time": "02:00 PM",
-            "location": "Atlanta, GA",
-            "venue": "Piedmont Park",
-            "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=200&fit=crop",
-            "organizerName": "ATL Music Collective",
-            "rating": 4.7,
-            "attending": 6000,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "Free Entry",
-                    "price": 0,
-                    "available": 5000
-                }
-            ]
-        },
-        {
-            "id": "9",
-            "title": "AI & Machine Learning Summit",
-            "description": "Two days of talks, workshops, and panels on the latest in artificial intelligence and machine learning. Hear from leading researchers and engineers.",
-            "category": "Technology",
-            "date": "2026-10-08",
-            "time": "09:00 AM",
-            "location": "Boston, MA",
-            "venue": "MIT Media Lab",
-            "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=200&fit=crop",
-            "organizerName": "AI Collective",
-            "rating": 4.8,
-            "attending": 900,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "General",
-                    "price": 149,
-                    "available": 300
-                },
-                {
-                    "id": "2",
-                    "name": "Workshop",
-                    "price": 399,
-                    "available": 60
-                }
-            ]
-        },
-        {
-            "id": "10",
-            "title": "Marathon City Run 2024",
-            "description": "Annual city marathon open to all fitness levels. Choose from 5K, 10K, half marathon, or full marathon distances through the city's most scenic routes.",
-            "category": "Sports",
-            "date": "2026-11-03",
-            "time": "06:00 AM",
-            "location": "Miami, FL",
-            "venue": "Bayfront Park",
-            "image": "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=400&h=200&fit=crop",
-            "organizerName": "RunMiami",
-            "rating": 4.6,
-            "attending": 12000,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "5K",
-                    "price": 30,
-                    "available": 2000
-                },
-                {
-                    "id": "2",
-                    "name": "Half Marathon",
-                    "price": 60,
-                    "available": 1000
-                },
-                {
-                    "id": "3",
-                    "name": "Full Marathon",
-                    "price": 90,
-                    "available": 500
-                }
-            ]
-        },
-        {
-            "id": "11",
-            "title": "Photography Masterclass",
-            "description": "Learn professional photography techniques from award-winning photographers. Covers composition, lighting, editing, and building your portfolio.",
-            "category": "Arts",
-            "date": "2026-09-20",
-            "time": "10:00 AM",
-            "location": "Portland, OR",
-            "venue": "Creative Arts Center",
-            "image": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=200&fit=crop",
-            "organizerName": "Lens & Light Studio",
-            "rating": 4.9,
-            "attending": 180,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "General",
-                    "price": 79,
-                    "available": 100
-                },
-                {
-                    "id": "2",
-                    "name": "With Equipment",
-                    "price": 149,
-                    "available": 30
-                }
-            ]
-        },
-        {
-            "id": "12",
-            "title": "Wine & Cheese Evening",
-            "description": "An elegant evening of premium wine tasting paired with artisan cheeses from around the world. Guided by a certified sommelier.",
-            "category": "Food",
-            "date": "2026-10-18",
-            "time": "07:00 PM",
-            "location": "Napa Valley, CA",
-            "venue": "Vineyard Estate",
-            "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=200&fit=crop",
-            "organizerName": "Napa Fine Events",
-            "rating": 4.8,
-            "attending": 120,
-            "ticketTypes": [
-                {
-                    "id": "1",
-                    "name": "Standard",
-                    "price": 95,
-                    "available": 80
-                },
-                {
-                    "id": "2",
-                    "name": "Premium",
-                    "price": 175,
-                    "available": 20
-                }
-            ]
+          "id": "3",
+          "name": "VVIP",
+          "price": 499,
+          "available": 5
         }
-    ],
-    "bookings": [
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Summer Music Festival",
+      "description": "Three days of live music featuring top artists across multiple stages. Experience the best in pop, rock, and electronic music under the open sky.",
+      "category": "Music",
+      "date": "2026-08-10",
+      "time": "12:00 PM",
+      "location": "Austin, TX",
+      "venue": "Zilker Park",
+      "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=200&fit=crop",
+      "organizerName": "Live Nation",
+      "rating": 4.9,
+      "attending": 8500,
+      "ticketTypes": [
         {
-            "id": "1",
-            "userId": "user1",
-            "eventId": "1",
-            "eventTitle": "React Conference 2024",
-            "eventDate": "2026-07-15",
-            "tickets": [
-                {
-                    "type": "General",
-                    "quantity": 2,
-                    "price": 99
-                }
-            ],
-            "attendees": [
-                {
-                    "name": "John Doe",
-                    "email": "john@example.com",
-                    "phone": "1234567890"
-                }
-            ],
-            "totalAmount": 198,
-            "status": "confirmed",
-            "bookingDate": "2026-02-01",
-            "referenceNumber": "BK123456"
+          "id": "1",
+          "name": "General",
+          "price": 89,
+          "available": 500
+        },
+        {
+          "id": "2",
+          "name": "VIP",
+          "price": 249,
+          "available": 50
         }
-    ]
+      ]
+    },
+    {
+      "id": "3",
+      "title": "NBA Finals Watch Party",
+      "description": "Watch the NBA Finals live on a giant screen with fellow basketball fans. Food, drinks, and giveaways throughout the night.",
+      "category": "Sports",
+      "date": "2026-06-12",
+      "time": "07:00 PM",
+      "location": "Chicago, IL",
+      "venue": "United Center Plaza",
+      "image": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=200&fit=crop",
+      "organizerName": "Sports Fanatics",
+      "rating": 4.6,
+      "attending": 3200,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "General",
+          "price": 25,
+          "available": 300
+        },
+        {
+          "id": "2",
+          "name": "Premium",
+          "price": 75,
+          "available": 100
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Modern Art Exhibition",
+      "description": "A curated collection of contemporary artworks from emerging and established artists. Featuring paintings, sculptures, and digital installations.",
+      "category": "Arts",
+      "date": "2026-09-05",
+      "time": "10:00 AM",
+      "location": "New York, NY",
+      "venue": "MoMA",
+      "image": "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&h=200&fit=crop",
+      "organizerName": "Art World NYC",
+      "rating": 4.7,
+      "attending": 650,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "Adult",
+          "price": 35,
+          "available": 200
+        },
+        {
+          "id": "2",
+          "name": "Student",
+          "price": 15,
+          "available": 100
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "International Food Festival",
+      "description": "Taste cuisines from over 40 countries in one place. Over 200 food stalls, live cooking demonstrations, and cultural performances.",
+      "category": "Food",
+      "date": "2026-08-22",
+      "time": "11:00 AM",
+      "location": "Los Angeles, CA",
+      "venue": "Grand Park",
+      "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=200&fit=crop",
+      "organizerName": "Foodie Events Co",
+      "rating": 4.5,
+      "attending": 5400,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "General",
+          "price": 15,
+          "available": 1000
+        },
+        {
+          "id": "2",
+          "name": "VIP Tasting",
+          "price": 85,
+          "available": 150
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Startup Pitch Night",
+      "description": "Watch 10 promising startups pitch to top investors. Network with founders, investors, and industry leaders after the pitches.",
+      "category": "Business",
+      "date": "2026-07-28",
+      "time": "06:00 PM",
+      "location": "Seattle, WA",
+      "venue": "Amazon HQ",
+      "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=200&fit=crop",
+      "organizerName": "StartupHub",
+      "rating": 4.4,
+      "attending": 420,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "General",
+          "price": 49,
+          "available": 200
+        },
+        {
+          "id": "2",
+          "name": "Investor",
+          "price": 199,
+          "available": 30
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Yoga & Wellness Retreat",
+      "description": "A full day of yoga sessions, meditation workshops, and wellness talks. Reconnect with your mind and body in a peaceful outdoor setting.",
+      "category": "Wellness",
+      "date": "2026-09-14",
+      "time": "07:00 AM",
+      "location": "Denver, CO",
+      "venue": "Red Rocks Park",
+      "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=200&fit=crop",
+      "organizerName": "Zen Life Events",
+      "rating": 4.9,
+      "attending": 280,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "Day Pass",
+          "price": 65,
+          "available": 150
+        },
+        {
+          "id": "2",
+          "name": "Full Retreat",
+          "price": 120,
+          "available": 50
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Hip Hop in the Park",
+      "description": "A free outdoor hip hop concert celebrating local artists and culture. Bring your friends and family for a day of great music and vibes.",
+      "category": "Music",
+      "date": "2026-08-03",
+      "time": "02:00 PM",
+      "location": "Atlanta, GA",
+      "venue": "Piedmont Park",
+      "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=200&fit=crop",
+      "organizerName": "ATL Music Collective",
+      "rating": 4.7,
+      "attending": 6000,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "Free Entry",
+          "price": 0,
+          "available": 5000
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "AI & Machine Learning Summit",
+      "description": "Two days of talks, workshops, and panels on the latest in artificial intelligence and machine learning. Hear from leading researchers and engineers.",
+      "category": "Technology",
+      "date": "2026-10-08",
+      "time": "09:00 AM",
+      "location": "Boston, MA",
+      "venue": "MIT Media Lab",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=200&fit=crop",
+      "organizerName": "AI Collective",
+      "rating": 4.8,
+      "attending": 900,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "General",
+          "price": 149,
+          "available": 300
+        },
+        {
+          "id": "2",
+          "name": "Workshop",
+          "price": 399,
+          "available": 60
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Marathon City Run 2024",
+      "description": "Annual city marathon open to all fitness levels. Choose from 5K, 10K, half marathon, or full marathon distances through the city's most scenic routes.",
+      "category": "Sports",
+      "date": "2026-11-03",
+      "time": "06:00 AM",
+      "location": "Miami, FL",
+      "venue": "Bayfront Park",
+      "image": "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=400&h=200&fit=crop",
+      "organizerName": "RunMiami",
+      "rating": 4.6,
+      "attending": 12000,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "5K",
+          "price": 30,
+          "available": 2000
+        },
+        {
+          "id": "2",
+          "name": "Half Marathon",
+          "price": 60,
+          "available": 1000
+        },
+        {
+          "id": "3",
+          "name": "Full Marathon",
+          "price": 90,
+          "available": 500
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Photography Masterclass",
+      "description": "Learn professional photography techniques from award-winning photographers. Covers composition, lighting, editing, and building your portfolio.",
+      "category": "Arts",
+      "date": "2026-09-20",
+      "time": "10:00 AM",
+      "location": "Portland, OR",
+      "venue": "Creative Arts Center",
+      "image": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=200&fit=crop",
+      "organizerName": "Lens & Light Studio",
+      "rating": 4.9,
+      "attending": 180,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "General",
+          "price": 79,
+          "available": 100
+        },
+        {
+          "id": "2",
+          "name": "With Equipment",
+          "price": 149,
+          "available": 30
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Wine & Cheese Evening",
+      "description": "An elegant evening of premium wine tasting paired with artisan cheeses from around the world. Guided by a certified sommelier.",
+      "category": "Food",
+      "date": "2026-10-18",
+      "time": "07:00 PM",
+      "location": "Napa Valley, CA",
+      "venue": "Vineyard Estate",
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=200&fit=crop",
+      "organizerName": "Napa Fine Events",
+      "rating": 4.8,
+      "attending": 120,
+      "ticketTypes": [
+        {
+          "id": "1",
+          "name": "Standard",
+          "price": 95,
+          "available": 80
+        },
+        {
+          "id": "2",
+          "name": "Premium",
+          "price": 175,
+          "available": 20
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "userId": "user1",
+      "eventId": "1",
+      "eventTitle": "React Conference 2024",
+      "eventDate": "2026-07-15",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 2,
+          "price": 99
+        }
+      ],
+      "attendees": [
+        {
+          "name": "John Doe",
+          "email": "john@example.com",
+          "phone": "1234567890"
+        }
+      ],
+      "totalAmount": 198,
+      "status": "confirmed",
+      "bookingDate": "2026-02-01",
+      "referenceNumber": "BK123456"
+    },
+    {
+      "userId": "user1",
+      "eventId": "2",
+      "eventTitle": "Summer Music Festival",
+      "eventDate": "2026-08-10",
+      "eventImage": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=200&fit=crop",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 1,
+          "price": 89
+        }
+      ],
+      "attendees": [
+        {
+          "name": "safasdf",
+          "email": "asf@gmail.com",
+          "phone": "1234567890"
+        }
+      ],
+      "totalAmount": 89,
+      "status": "confirmed",
+      "bookingDate": "2026-06-08",
+      "referenceNumber": "BKANK4LF",
+      "id": "uyI3UKexa4I"
+    },
+    {
+      "userId": "user1",
+      "eventId": "2",
+      "eventTitle": "Summer Music Festival",
+      "eventDate": "2026-08-10",
+      "eventImage": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=200&fit=crop",
+      "tickets": [
+        {
+          "type": "VIP",
+          "quantity": 1,
+          "price": 249
+        }
+      ],
+      "attendees": [
+        {
+          "name": "aedfasdfas",
+          "email": "asdfasd@gmail.com",
+          "phone": "12345678900"
+        }
+      ],
+      "totalAmount": 249,
+      "status": "confirmed",
+      "bookingDate": "2026-06-08",
+      "referenceNumber": "BKVZDR9E",
+      "id": "WkUz_V-PjMg"
+    },
+    {
+      "userId": "user1",
+      "eventId": "2",
+      "eventTitle": "Summer Music Festival",
+      "eventDate": "2026-08-10",
+      "eventImage": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=200&fit=crop",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 1,
+          "price": 89
+        }
+      ],
+      "attendees": [
+        {
+          "name": "sdaf",
+          "email": "asdfsd@gmaill.com",
+          "phone": "11242346466"
+        }
+      ],
+      "totalAmount": 89,
+      "status": "confirmed",
+      "bookingDate": "2026-06-08",
+      "referenceNumber": "BKU4OSGF",
+      "id": "quHauXeGGCM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
