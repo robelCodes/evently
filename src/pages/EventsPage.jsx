@@ -11,6 +11,7 @@ function EventsPage() {
   const [error, setError] = useState(null);
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("date")
 
   useEffect(() => {
     fetch("http://localhost:3001/events")
@@ -27,6 +28,10 @@ function EventsPage() {
         setLoading(false);
       });
   }, []);
+
+
+
+  
 
   const filteredEvents = events.filter((event) => {
     const today = new Date();
@@ -83,10 +88,26 @@ function EventsPage() {
     );
   }
 
+
+  const sortedEvents = [...filteredEvents].sort((a, b) => {
+  if (sortBy === "date") {
+    return new Date(a.date) - new Date(b.date);
+  }
+
+  if (sortBy === "price-asc" || sortBy === "price-desc") {
+    const priceA = Math.min(...a.ticketTypes.map((t) => t.price));
+    const priceB = Math.min(...b.ticketTypes.map((t) => t.price));
+    return sortBy === "price-asc" ? priceA - priceB : priceB - priceA;
+  }
+  
+});
+
+
+
   return (
     <>
       <Hero onSearch={setSearchTerm} />
-      <FilterBar onClick={setSearchTerm} />
+      <FilterBar onClick={setSearchTerm} onSort={setSortBy}/>
       <div className="container section">
         <div className="section-header">
           <div>
@@ -99,7 +120,7 @@ function EventsPage() {
             {!searchTerm && <p>Discover what's happening around you</p>}
           </div>
         </div>
-        <EventsGrid events={filteredEvents} />
+        <EventsGrid events={sortedEvents} />
       </div>
       <StatsBar />
       

@@ -18,13 +18,11 @@ const Filters = [
   { id: "over-50", label: "$50+" },
 ];
 
-function FilterBar({onClick}) {
+function FilterBar({onClick, onSort}) {
 
   const handleCategoryClick = (cat) => {
     onClick(cat.id === 'all' ? '' : cat.label)
   }
-
-
 
 
   return (
@@ -45,11 +43,11 @@ function FilterBar({onClick}) {
         ))}
       </div>
       <div className="filters-right">
-        <select className="filter-select">
+        <select className="filter-select" onChange={(e)=> onSort(e.target.value)}>
           <option value="date">Sort by Date</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
-          <option value="rating">Top Rated</option>
+          
         </select>
       </div>
       
