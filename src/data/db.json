@@ -365,7 +365,7 @@
         }
       ],
       "totalAmount": 198,
-      "status": "confirmed",
+      "status": "cancelled",
       "bookingDate": "2026-02-01",
       "referenceNumber": "BK123456"
     },
@@ -416,7 +416,7 @@
         }
       ],
       "totalAmount": 249,
-      "status": "confirmed",
+      "status": "cancelled",
       "bookingDate": "2026-06-08",
       "referenceNumber": "BKVZDR9E",
       "id": "WkUz_V-PjMg"
@@ -492,10 +492,35 @@
         }
       ],
       "totalAmount": 249,
-      "status": "confirmed",
+      "status": "cancelled",
       "bookingDate": "2026-06-08",
       "referenceNumber": "BKJVW1H3",
       "id": "qWJJdu-L0A0"
+    },
+    {
+      "userId": "user1",
+      "eventId": "2",
+      "eventTitle": "Summer Music Festival",
+      "eventDate": "2026-08-10",
+      "tickets": [
+        {
+          "type": "VIP",
+          "quantity": 1,
+          "price": 249
+        }
+      ],
+      "attendees": [
+        {
+          "name": "Robel Isaias",
+          "email": "robelisaias@gmail.com",
+          "phone": "1234567890"
+        }
+      ],
+      "totalAmount": 249,
+      "status": "confirmed",
+      "bookingDate": "2026-06-08",
+      "referenceNumber": "BKOG3MFV",
+      "id": "AY-qI5HT3U8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

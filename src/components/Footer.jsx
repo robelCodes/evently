@@ -67,7 +67,8 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 Evently. All rights reserved.</p>
+          <p> Developed by Robel Isaias </p>
+          <p>© 2026 Evently. All rights reserved. </p>
         </div>
       </div>
     </footer>

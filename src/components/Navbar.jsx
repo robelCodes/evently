@@ -48,12 +48,7 @@ function Navbar() {
           <button className="theme-toggle" onClick={toggleTheme}>
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
-          <button className="btn btn-outline btn-sm hide-mobile">
-            Sign In
-          </button>
-          <button className="btn btn-primary btn-sm">
-            Get Started
-          </button>
+                    
         </div>
 
           
