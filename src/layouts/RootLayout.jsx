@@ -11,7 +11,7 @@ function RootLayout() {
       <ScrollToTop />
       <Navbar />
       <main><Outlet /></main>
-      <StatsBar />
+      
       <Footer />
     </div>
   )
