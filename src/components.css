@@ -577,6 +577,16 @@
   color: var(--primary);
 }
 
+.ticket-type.display-only {
+  cursor: default;
+  pointer-events: none;
+}
+
+.ticket-type.display-only:hover {
+  border-color: var(--border);
+  background: transparent;
+}
+
 @media (max-width: 768px) {
   .event-detail-layout { grid-template-columns: 1fr; }
   .booking-sidebar { position: static; }
