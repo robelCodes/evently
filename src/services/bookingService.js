@@ -35,3 +35,21 @@ export const saveBooking = async (booking) => {
   if (!res.ok) throw new Error('Failed to save booking')
   return res.json()
 }
+
+
+export const fetchBookings = async () => {
+  const res = await fetch('http://localhost:3001/bookings')
+  if (!res.ok) throw new Error('Failed to fetch bookings')
+  return res.json()
+}
+
+
+export const cancelBooking = async (id) => {
+  const res = await fetch(`http://localhost:3001/bookings/${id}`, {
+    method:  'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify({ status: 'cancelled' }),
+  })
+  if (!res.ok) throw new Error('Failed to cancel booking')
+  return res.json()
+}
