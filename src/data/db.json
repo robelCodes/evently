@@ -446,6 +446,56 @@
       "bookingDate": "2026-06-08",
       "referenceNumber": "BKU4OSGF",
       "id": "quHauXeGGCM"
+    },
+    {
+      "userId": "user1",
+      "eventId": "2",
+      "eventTitle": "Summer Music Festival",
+      "eventDate": "2026-08-10",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 1,
+          "price": 89
+        }
+      ],
+      "attendees": [
+        {
+          "name": "sdaf",
+          "email": "asdfsd@gmaill.com",
+          "phone": "11242346466"
+        }
+      ],
+      "totalAmount": 89,
+      "status": "confirmed",
+      "bookingDate": "2026-06-08",
+      "referenceNumber": "BKWG5N78",
+      "id": "BJ_AdxWMhP8"
+    },
+    {
+      "userId": "user1",
+      "eventId": "2",
+      "eventTitle": "Summer Music Festival",
+      "eventDate": "2026-08-10",
+      "tickets": [
+        {
+          "type": "VIP",
+          "quantity": 1,
+          "price": 249
+        }
+      ],
+      "attendees": [
+        {
+          "name": "asfsf",
+          "email": "asfs@gmai.com",
+          "phone": "13523464765"
+        }
+      ],
+      "totalAmount": 249,
+      "status": "confirmed",
+      "bookingDate": "2026-06-08",
+      "referenceNumber": "BKJVW1H3",
+      "id": "qWJJdu-L0A0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
