@@ -18,7 +18,7 @@ const BookingStep1 = ({ state, dispatch, event }) => {
       </div>
 
       <p style={{ fontWeight: 600, marginBottom: 10 }}>Ticket Type</p>
-      {event.ticketTypes.map((ticket) => (
+      {(event.ticketTypes || []).map((ticket) => (
         <div
           key={ticket.id}
           className={`ticket-type ${state.selectedTicket?.id === ticket.id ? "selected" : ""}`}

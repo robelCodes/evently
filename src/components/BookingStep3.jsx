@@ -17,7 +17,9 @@ const BookingStep3 = ({ state, dispatch, event }) => {
       setRefNumber(booking.referenceNumber)
       setSubmitted(true)
     } catch (err) {
-      setError('Something went wrong. Please try again.')
+      console.log("FULL ERROR:", err);
+      setError(err.message);
+      //setError('Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -102,15 +104,15 @@ const BookingSummary = ({ state, event }) => (
     </div>
     <div className="price-row">
       <span>Attendee</span>
-      <span>{state.attendeesInfo[0].name}</span>
+      <span>{state.attendeesInfo?.[0]?.name || "N/A"}</span>
     </div>
     <div className="price-row">
       <span>Email</span>
-      <span>{state.attendeesInfo[0].email}</span>
+      <span>{state.attendeesInfo?.[0]?.email || "N/A"}</span>
     </div>
     <div className="price-row total">
       <span>Total</span>
-      <span>${state.totalAmount}</span>
+      <span>${state.totalAmount || 0}</span>
     </div>
   </div>
 )

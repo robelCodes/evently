@@ -209,6 +209,18 @@ ul {
   background: var(--surface-2);
 }
 
+.btn-outline.active {
+  background: var(--gradient);
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn-outline.active:hover {
+  background: var(--gradient);
+  color: #fff;
+  border-color: transparent;
+}
+
 .btn-ghost {
   background: transparent;
   color: var(--text-secondary);

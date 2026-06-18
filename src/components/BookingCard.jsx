@@ -5,7 +5,7 @@ const BookingCard = ({ booking, onCancel, isUpcoming }) => (
       <h3>{booking.eventTitle}</h3>
       <div className="booking-item-meta">
         <span>📅 {booking.eventDate}</span>
-        <span>🎟 {booking.tickets.reduce((sum, t) => sum + t.quantity, 0)} ticket(s)</span>
+        <span>🎟 {booking.booking_tickets?.reduce((sum, t) => sum + t.quantity, 0) || 0} ticket(s)</span>
         <span>🔖 {booking.referenceNumber}</span>
         <span className={`badge ${
           booking.status === 'confirmed' ? 'badge-success' :

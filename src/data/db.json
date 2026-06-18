@@ -390,7 +390,7 @@
         }
       ],
       "totalAmount": 89,
-      "status": "confirmed",
+      "status": "cancelled",
       "bookingDate": "2026-06-08",
       "referenceNumber": "BKANK4LF",
       "id": "uyI3UKexa4I"
@@ -442,7 +442,7 @@
         }
       ],
       "totalAmount": 89,
-      "status": "confirmed",
+      "status": "cancelled",
       "bookingDate": "2026-06-08",
       "referenceNumber": "BKU4OSGF",
       "id": "quHauXeGGCM"
@@ -467,7 +467,7 @@
         }
       ],
       "totalAmount": 89,
-      "status": "confirmed",
+      "status": "cancelled",
       "bookingDate": "2026-06-08",
       "referenceNumber": "BKWG5N78",
       "id": "BJ_AdxWMhP8"
@@ -517,10 +517,35 @@
         }
       ],
       "totalAmount": 249,
-      "status": "confirmed",
+      "status": "cancelled",
       "bookingDate": "2026-06-08",
       "referenceNumber": "BKOG3MFV",
       "id": "AY-qI5HT3U8"
+    },
+    {
+      "userId": "user1",
+      "eventId": "3",
+      "eventTitle": "NBA Finals Watch Party",
+      "eventDate": "2026-06-12",
+      "tickets": [
+        {
+          "type": "General",
+          "quantity": 1,
+          "price": 25
+        }
+      ],
+      "attendees": [
+        {
+          "name": "dsfadsfdsf",
+          "email": "asdff@gmail.com",
+          "phone": "1321235234"
+        }
+      ],
+      "totalAmount": 25,
+      "status": "confirmed",
+      "bookingDate": "2026-06-16",
+      "referenceNumber": "BKSKE737",
+      "id": "AJhi_Bs1jxg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

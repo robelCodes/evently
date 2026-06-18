@@ -18,18 +18,16 @@ const Filters = [
   { id: "over-50", label: "$50+" },
 ];
 
-function FilterBar({onClick, onSort}) {
-
-  const handleCategoryClick = (cat) => {
-    onClick(cat.id === 'all' ? '' : cat.label)
-  }
-
-
+function FilterBar({ activeCategory, activeFilter, onCategoryClick, onFilterClick, onSort }) {
   return (
     <div className="filters-bar container">
       <div className="category-pills">
         {Categories.map((cat) => (
-          <button onClick={() => handleCategoryClick(cat)} key={cat.id} className="category-pill">
+          <button
+            onClick={() => onCategoryClick(cat.id)}
+            key={cat.id}
+            className={`category-pill ${activeCategory === cat.id ? "active" : ""}`}
+          >
             <span>{cat.icon}</span>
             {cat.label}
           </button>
@@ -37,20 +35,22 @@ function FilterBar({onClick, onSort}) {
       </div>
       <div className="filters-right">
         {Filters.map((filter) => (
-          <button onClick={() => onClick(filter.id)} key={filter.id} className="btn btn-outline btn-sm">
+          <button
+            onClick={() => onFilterClick(filter.id)}
+            key={filter.id}
+            className={`btn btn-outline btn-sm ${activeFilter === filter.id ? "active" : ""}`}
+          >
             {filter.label}
           </button>
         ))}
       </div>
       <div className="filters-right">
-        <select className="filter-select" onChange={(e)=> onSort(e.target.value)}>
+        <select className="filter-select" onChange={(e) => onSort(e.target.value)}>
           <option value="date">Sort by Date</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
-          
         </select>
       </div>
-      
     </div>
   );
 }
