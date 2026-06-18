@@ -10,20 +10,20 @@ const BookingStep2 =({state, dispatch})=>{
     const validate = () => {
     const newErrors = {}
 
-    state.attendeesInfo.forEach((attendee, i) => {
+    state.attendeesInfo.forEach((attendee = {}, i) => {
 
     
-    if (!attendee.name.trim()) {
+    if (!attendee.name?.trim()) {
       newErrors[`${i}-name`] = 'Please enter your name'
     }
 
     
-    if (!attendee.email.includes('@') || !attendee.email.includes('.')) {
+    if (!attendee.email?.includes('@') || !attendee.email?.includes('.')) {
       newErrors[`${i}-email`] = 'Please enter a valid email'
     }
 
     
-    if (attendee.phone.length < 10) {
+    if (!attendee.phone?.length || attendee.phone.length < 10) {
       newErrors[`${i}-phone`] = 'Phone number is too short'
     }
 
@@ -40,7 +40,7 @@ const BookingStep2 =({state, dispatch})=>{
     <div className="booking-card">
       <h2>Attendee Details</h2>
 
-      {state.attendeesInfo.map((attendee, i) => (
+      {(state.attendeesInfo || []).map((attendee, i) => (
         <div key={i} style={{ marginBottom: 24 }}>
 
           
