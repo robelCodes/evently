@@ -260,6 +260,12 @@ ul {
   box-shadow: var(--shadow-lg);
 }
 
+.review-card {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+}
 /* ============================================
    BADGE / PILL
 ============================================ */

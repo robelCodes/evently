@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState,} from "react";
 import Hero from "../components/Hero";
 import FilterBar from "../components/FilterBar";
 import EventsGrid from "../components/EventsGrid";
 import StatsBar from "../components/StatsBar";
-import { supabase } from "../lib/supabase";
+import { useEvents } from "../hooks/useEvents";
 
 function EventsPage() {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  
+
+  const {data: events=[], isLoading, isError, error}= useEvents()
 
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("date");
@@ -16,49 +16,6 @@ function EventsPage() {
   const [activeFilter, setActiveFilter] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3001/events")
-  //     .then((res) => {
-  //       if (!res.ok) throw new Error("Failed to fetch events");
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setEvents(data);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       setError(err.message);
-  //       setLoading(false);
-  //     });
-  // }, []);
-
-  useEffect(() => {
-    const loadEvents = async () => {
-      const { data, error } = await supabase.from("events").select(`
-        *,
-        ticket_types(*)
-      `);
-
-      if (error) {
-        setError(error.message);
-        setLoading(false);
-        return;
-      }
-
-      const formatted = data.map((event) => ({
-        ...event,
-        date: event.event_date,
-        time: event.event_time,
-        organizerName: event.organizer_name,
-        ticketTypes: event.ticket_types,
-      }));
-
-      setEvents(formatted);
-      setLoading(false);
-    };
-
-    loadEvents();
-  }, []);
 
   const filteredEvents = events.filter((event) => {
     const today = new Date();
@@ -93,7 +50,7 @@ function EventsPage() {
     );
   });
 
-  if (loading)
+  if (isLoading)
     return (
       <div className="loading-container">
         <div className="spinner"></div>
@@ -106,7 +63,7 @@ function EventsPage() {
       <div className="empty-state">
         <div className="empty-state-icon">⚠️</div>
         <h3>Something went wrong</h3>
-        <p>{error}</p>
+        <p>{error.message}</p>
         <button
           className="btn btn-primary"
           onClick={() => window.location.reload()}

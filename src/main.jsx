@@ -4,12 +4,16 @@ import { ThemeProvider } from "./context/ThemeContext";
 import App from "./App.jsx";
 import "./index.css";
 import "./components.css";
-import Navbar from "./components/Navbar.jsx";
+
+
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    
   </StrictMode>,
 );
