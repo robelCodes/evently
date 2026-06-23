@@ -1,31 +1,23 @@
-import {useTheme} from '../context/ThemeContext'
-import {Link, NavLink} from 'react-router-dom'
-import logo from '../assets/evently_logo.svg'
-
+import { useTheme } from "../context/ThemeContext";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav className="navbar">
       <div className="container navbar-inner">
-
         <Link to="/" className="navbar-logo">
-        <div className="navbar-logo-icon">🎟</div>
-        Evently        
-        
-        {/* <svg width="160" height="44" viewBox="0 0 340 64" xmlns="http://www.w3.org/2000/svg">
-            <img src={logo} alt="Evently" height="44" />
-          </svg> */}
-
+          <div className="navbar-logo-icon">🎟</div>
+          Evently
         </Link>
 
-          <ul className="navbar-links">
+        <ul className="navbar-links">
           <li>
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? 'navbar-link active' : 'navbar-link'
+                isActive ? "navbar-link active" : "navbar-link"
               }
             >
               Events
@@ -35,28 +27,32 @@ function Navbar() {
             <NavLink
               to="/bookings"
               className={({ isActive }) =>
-                isActive ? 'navbar-link active' : 'navbar-link'
+                isActive ? "navbar-link active" : "navbar-link"
               }
             >
               My Tickets
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/create-event"
+              className={({ isActive }) =>
+                isActive ? "navbar-link active" : "navbar-link"
+              }
+            >
+              Create Event
+            </NavLink>
+          </li>
         </ul>
 
-        
         <div className="navbar-actions">
           <button className="theme-toggle" onClick={toggleTheme}>
-            {theme === 'dark' ? '☀️' : '🌙'}
+            {theme === "dark" ? "☀️" : "🌙"}
           </button>
-                    
         </div>
-
-          
-
-
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
