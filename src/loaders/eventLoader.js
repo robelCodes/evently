@@ -6,9 +6,9 @@ import { fetchEvent } from "../hooks/useEvent";
 const fetchReviews = async (eventId) => {
   await new Promise((resolve) => setTimeout(resolve, 1500));
   return [
-    { id: 1, user: "Alice M.", rating: 5, comment: "One of the best events I've attended. Incredibly well organized." },
-    { id: 2, user: "Jordan K.", rating: 4, comment: "Great speakers and a fantastic venue. Would definitely go again." },
-    { id: 3, user: "Sam R.", rating: 5, comment: "Exceeded all my expectations. Already signed up for next year!" },
+    { id: 1, author: "Robel I.", rating: 5, comment: "One of the best events I've attended. Incredibly well organized." },
+    { id: 2, author: "John D.", rating: 4, comment: "Great speakers and a fantastic venue. Would definitely go again." },
+    { id: 3, author: "Alice R.", rating: 5, comment: "Exceeded all my expectations. Already signed up for next year!" },
   ];
 };
 
