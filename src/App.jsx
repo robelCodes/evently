@@ -8,6 +8,7 @@ import { eventLoader } from "./loaders/eventLoader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CreateEventPage from "./components/CreateEventPage";
 import ErrorPage from "./components/ErrorPage";
+import ProfilePage from "./pages/ProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "booking/:id", element: <BookingPage />, errorElement: <ErrorPage/> },
       { path: "bookings", element: <MyBookingsPage />, errorElement: <ErrorPage/> },
       { path: "create-event", element: <CreateEventPage />, errorElement: <ErrorPage/> },
+      { path: "profile", element: <ProfilePage />, errorElement: <ErrorPage /> },
     ],
   },
 ]);
