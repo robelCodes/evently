@@ -43,7 +43,7 @@ function CreateEventStep1() {
           dispatch(updateField({ field: "title", value: e.target.value }))
         }
         error={errors.title}
-        placeholder="React Summit 2025"
+        placeholder="Humber hiring event 2026"
         required
       />
 
@@ -58,7 +58,7 @@ function CreateEventStep1() {
               updateField({ field: "description", value: e.target.value }),
             )
           }
-          placeholder="Tell people what your event is about..."
+          placeholder="Say something about the event..."
           rows={4}
           style={{
             width: "100%",

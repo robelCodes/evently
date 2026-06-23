@@ -57,7 +57,7 @@ function CreateEventStep2() {
           dispatch(updateField({ field: "venue", value: e.target.value }))
         }
         error={errors.venue}
-        placeholder="Rogers Centre"
+        placeholder="Humber downtown center"
         required
       />
 
