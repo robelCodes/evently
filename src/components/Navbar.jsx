@@ -43,6 +43,16 @@ function Navbar() {
               Create Event
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                isActive ? "navbar-link active" : "navbar-link"
+              }
+            >
+              Profile
+            </NavLink>
+          </li>
         </ul>
 
         <div className="navbar-actions">
