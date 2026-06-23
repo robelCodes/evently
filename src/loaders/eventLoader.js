@@ -1,38 +1,28 @@
+import { defer } from "react-router-dom";
+import { fetchEvent } from "../hooks/useEvent";
 
 
-// export const eventLoader = async ({ params }) => {
 
-//     const response = await fetch(`http://localhost:3001/events/${params.id}`)
-
-//     if (!response.ok) {
-//         throw new Error('Failed to fetch event details')
-//     }
-//     const event = await response.json()
-//     return event
-// }
-
-
-import { supabase } from "../lib/supabase";
-
-export const eventLoader = async ({ params }) => {
-  const { data, error } = await supabase
-    .from("events")
-    .select(`
-      *,
-      ticket_types(*)
-    `)
-    .eq("id", params.id)
-    .single();
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  return {
-    ...data,
-    date: data.event_date,
-    time: data.event_time,
-    organizerName: data.organizer_name,
-    ticketTypes: data.ticket_types || [],
-  };
+const fetchReviews = async (eventId) => {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  return [
+    { id: 1, author: "Robel I.", rating: 5, comment: "One of the best events I've attended. Incredibly well organized." },
+    { id: 2, author: "John D.", rating: 4, comment: "Great speakers and a fantastic venue. Would definitely go again." },
+    { id: 3, author: "Alice R.", rating: 5, comment: "Exceeded all my expectations. Already signed up for next year!" },
+  ];
 };
+
+export const eventLoader = (queryClient) => async ({ params }) => {
+  
+  await queryClient.prefetchQuery({
+    queryKey: ["event", params.id],
+    queryFn: () => fetchEvent(params.id),
+  });
+
+  
+  const reviewsPromise = fetchReviews(params.id);
+  return defer({ reviews: reviewsPromise });
+
+  
+};
+

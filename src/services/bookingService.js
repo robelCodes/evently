@@ -2,8 +2,6 @@ import { supabase } from "../lib/supabase"
 
 
 
-//const API_URL = 'http://localhost:3001'
-
 
 export const generateReference = () => {
   return 'BK' + Math.random().toString(36).substring(2, 8).toUpperCase()
@@ -32,22 +30,9 @@ export const buildBooking = (state, event) => {
 };
 
 
-// export const saveBooking = async (booking) => {
-//   const res = await fetch(`${API_URL}/bookings`, {
-//     method:  'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body:    JSON.stringify(booking),
-//   })
-//   if (!res.ok) throw new Error('Failed to save booking')
-//   return res.json()
-// }
-
-
-
-
 
 export const saveBooking = async (booking) => {
-  // 1. Insert main booking
+  
   const { data: bookingData, error: bookingError } = await supabase
     .from("bookings")
     .insert([
@@ -107,18 +92,6 @@ export const saveBooking = async (booking) => {
 };
 
 
-
-
-
-
-
-
-
-// export const fetchBookings = async () => {
-//   const res = await fetch('http://localhost:3001/bookings')
-//   if (!res.ok) throw new Error('Failed to fetch bookings')
-//   return res.json()
-// }
 
 export const fetchBookings = async () => {
   const { data, error } = await supabase.from("bookings").select(`

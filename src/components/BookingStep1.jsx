@@ -1,3 +1,7 @@
+
+
+
+
 const BookingStep1 = ({ state, dispatch, event }) => {
   return (
     <div className="booking-card">
@@ -79,6 +83,7 @@ const BookingStep1 = ({ state, dispatch, event }) => {
           </span>
         </div>
       </div>
+      
 
       <button
         className="btn btn-primary"
