@@ -1,9 +1,10 @@
-import { useState,} from "react";
+import { useState, useDeferredValue} from "react";
 import Hero from "../components/Hero";
 import FilterBar from "../components/FilterBar";
 import EventsGrid from "../components/EventsGrid";
 import StatsBar from "../components/StatsBar";
 import { useEvents } from "../hooks/useEvents";
+
 
 function EventsPage() {
   
@@ -11,6 +12,7 @@ function EventsPage() {
   const {data: events=[], isLoading, isError, error}= useEvents()
 
   const [searchTerm, setSearchTerm] = useState("");
+  const deferredSearch = useDeferredValue(searchTerm)
   const [sortBy, setSortBy] = useState("date");
 
   const [activeFilter, setActiveFilter] = useState("");
@@ -22,14 +24,14 @@ function EventsPage() {
     today.setHours(0, 0, 0, 0);
     const eventDate = new Date(event.date);
 
-    if (searchTerm === "upcoming") return eventDate >= today;
-    if (searchTerm === "this-week") {
+    if (deferredSearch === "upcoming") return eventDate >= today;
+    if (deferredSearch === "this-week") {
       const weekFromNow = new Date();
       weekFromNow.setDate(today.getDate() + 7);
       return eventDate >= today && eventDate <= weekFromNow;
     }
 
-    if (searchTerm === "this-month") {
+    if (deferredSearch === "this-month") {
       return (
         eventDate.getMonth() === today.getMonth() &&
         eventDate.getFullYear() === today.getFullYear()
@@ -40,13 +42,13 @@ function EventsPage() {
       ...(event.ticketTypes?.map((t) => t.price) || [0]),
     );
 
-    if (searchTerm === "free") return lowestPrice === 0;
-    if (searchTerm === "under-50") return lowestPrice > 0 && lowestPrice < 50;
-    if (searchTerm === "over-50") return lowestPrice >= 50;
+    if (deferredSearch === "free") return lowestPrice === 0;
+    if (deferredSearch === "under-50") return lowestPrice > 0 && lowestPrice < 50;
+    if (deferredSearch === "over-50") return lowestPrice >= 50;
 
     return (
-      event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      event.category.toLowerCase().includes(searchTerm.toLowerCase())
+      event.title.toLowerCase().includes(deferredSearch.toLowerCase()) ||
+      event.category.toLowerCase().includes(deferredSearch.toLowerCase())
     );
   });
 
@@ -110,12 +112,12 @@ function EventsPage() {
         <div className="section-header">
           <div>
             <h2>All Events</h2>
-            {searchTerm && (
+            {deferredSearch && (
               <p>
-                Showing {filteredEvents.length} results for "{searchTerm}"
+                Showing {filteredEvents.length} results for "{deferredSearch}"
               </p>
             )}
-            {!searchTerm && <p>Discover what's happening around you</p>}
+            {!deferredSearch && <p>Discover what's happening around you</p>}
           </div>
         </div>
         <EventsGrid events={sortedEvents} />

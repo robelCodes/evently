@@ -29,7 +29,7 @@ function CreateEventStep3() {
           <div className="confirmation-icon">✓</div>
           <h2>Event Published!</h2>
           <p style={{ color: "var(--text-secondary)" }}>
-            Your event is now live and visible to everyone.
+            Event is now live and visible to everyone.
           </p>
         </div>
         <button

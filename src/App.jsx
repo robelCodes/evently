@@ -7,6 +7,7 @@ import RootLayout from "./layouts/RootLayout";
 import { eventLoader } from "./loaders/eventLoader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CreateEventPage from "./components/CreateEventPage";
+import ErrorPage from "./components/ErrorPage";
 
 const queryClient = new QueryClient();
 
@@ -16,10 +17,10 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <EventsPage /> },
-      { path: "events/:id", element: <EventDetailPage />, loader: eventLoader(queryClient) },
-      { path: "booking/:id", element: <BookingPage /> },
-      { path: "bookings", element: <MyBookingsPage /> },
-      { path: "create-event", element: <CreateEventPage /> },
+      { path: "events/:id", element: <EventDetailPage />, loader: eventLoader(queryClient), errorElement: <ErrorPage/> },
+      { path: "booking/:id", element: <BookingPage />, errorElement: <ErrorPage/> },
+      { path: "bookings", element: <MyBookingsPage />, errorElement: <ErrorPage/> },
+      { path: "create-event", element: <CreateEventPage />, errorElement: <ErrorPage/> },
     ],
   },
 ]);
