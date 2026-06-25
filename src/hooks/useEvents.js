@@ -22,6 +22,6 @@ export const useEvents=()=>{
     return useQuery({
         queryKey: ["events"],
         queryFn: fetchEvents,
-        staleTime: 60000*5,
+        staleTime: 1000*60*5,
     })
 }

@@ -1,46 +1,73 @@
-# Evently — Event Management Platform
-
-A React-based event management platform built as a hands-on course project. Users can browse events, book tickets, and manage their bookings — all powered by a mock REST backend.
+# Evently 🎟
+A full-featured Event Management Platform built as a hands-on course project. Users can browse events, book tickets, manage their bookings, and create new events — powered by Supabase and built with modern React patterns.
 
 ---
 
-## Live Demo
+## Installation & Running
 
-- **Frontend:** Deployed on Netlify
-- **Backend:** json-server running locally via `npm run server`
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173)
 
 ---
 
 ## Features
 
-### Events Listing & Discovery
+### Events Listing & Discovery (`/`)
 - Card-based event grid with title, date, location, price, and category
-- Search by event title or category via the Hero search bar
+- Search by event title or category via the Hero search bar — powered by `useDeferredValue` for non-blocking UI updates
 - Filter by category pills (Music, Technology, Sports, Arts, Food, Business, Wellness)
 - Quick filters: Upcoming, This Week, This Month, Free Only, Under $50, $50+
-- Sort by date, price (low to high / high to low), or top rated
-- Favourite/like toggle icon on each event card
+- Sort by date or price (low to high / high to low)
+- Like/favourite toggle with **optimistic updates** and automatic rollback on failure
+- Favourite state persisted to `localStorage` so the heart survives navigation and refresh
+- TanStack Query with 5 minute `staleTime` for intelligent caching
 
-### Event Details Page
-- Full event information: description, date, time, location, venue, organizer
-- Available ticket types with pricing
-- "Book Tickets" button linking to the booking flow
+### Event Details (`/events/:id`)
+- Full event info: description, date, time, location, venue, organizer
+- Loader prefetches event into TanStack Query cache before the page renders
+- `defer` + `<Await>` + `<Suspense>` streams reviews in after main content is already visible
+- Available ticket types with pricing and a Book Tickets CTA
 
-### Ticket Booking (3-Step Flow)
+### Ticket Booking — 3-Step Flow (`/booking/:id`)
 - **Step 1 – Select Tickets:** Choose ticket type and quantity with real-time price calculation
-- **Step 2 – Attendee Details:** Form with name, email, and phone validation and inline error messages
-- **Step 3 – Confirmation:** Booking summary with a generated reference number and link to My Bookings
-- Progress indicator throughout; back navigation between steps
+- **Step 2 – Attendee Details:** Name, email, and phone with field-level validation and inline error messages
+- **Step 3 – Confirmation:** Booking summary, generated reference number, and link to My Bookings
+- Multi-step state managed by `useReducer`; progress indicator and back navigation throughout
+- `useMutation` for Supabase submission (booking + tickets + attendees in one transaction)
 
-### My Bookings
-- Lists all user bookings with event name, date, ticket count, total amount, and status
-- Filter by Upcoming or Past events
-- Cancel upcoming bookings with a confirmation dialog (rendered via React Portal)
+### My Bookings (`/bookings`)
+- TanStack Query with 1 minute `staleTime`
+- Filter by Upcoming or Past tabs
+- Cancel upcoming bookings with a confirmation modal (rendered via React Portal)
+- Cancel uses **optimistic update** — booking marked cancelled instantly, rolls back if server fails
 
-### Theme Toggle
-- Light and dark mode via ThemeContext
+### Create Event (`/create-event`)
+- **Step 1 – Basic Info:** Title, description, category, image URL with live preview
+- **Step 2 – Date, Location & Tickets:** Date, time, venue, location, dynamic ticket types (add/remove)
+- **Step 3 – Preview & Publish:** Full preview before submitting
+- Multi-step form state managed entirely by **Redux Toolkit** with `createSlice`
+- `createAsyncThunk` handles the async Supabase publish
+- Draft auto-saved to `localStorage` on every change — survives page refresh
+- Invalidates events cache on publish so the new event appears on the listing immediately
+
+### Profile (`/profile`)
+- Displays simulated user info from `AuthContext`
+- Theme preference toggle (light/dark)
+
+### Theme
+- Light and dark mode via `ThemeContext`
 - Toggle button in the Navbar
-- Theme preference persisted in `localStorage`
+- Preference persisted to `localStorage`
+
+### Routing & Error Handling
+- `createBrowserRouter` with nested routes under a shared `RootLayout`
+- Loaders for data prefetching on the event details route
+- `errorElement` on every route for graceful error handling
+- 404 page for unmatched routes
 
 ---
 
@@ -48,116 +75,104 @@ A React-based event management platform built as a hands-on course project. User
 
 | Layer | Technology |
 |---|---|
-| Frontend | React 18, Vite |
+| Framework | React 18 + Vite |
 | Routing | React Router v6 |
-| State | useState, useReducer, Context API |
-| Backend | json-server (mock REST API) |
+| Server State | TanStack Query v5 |
+| Global Form State | Redux Toolkit |
+| Global UI State | Context API (Theme, Auth) |
+| Database | Supabase (PostgreSQL) |
 | Styling | Vanilla CSS with CSS custom properties |
 
 ---
 
 ## React Concepts Demonstrated
 
-- **Component composition and props** — data flows from EventsPage down through FilterBar, EventsGrid, and EventCard
-- **useState** — local UI state (search term, sort order, favourite toggle, form fields)
+- **TanStack Query** — `useQuery` for all data fetching with caching, `useMutation` for all writes with optimistic updates and rollback
+- **Redux Toolkit** — `createSlice` + `createAsyncThunk` for the Create Event multi-step wizard
 - **useReducer** — multi-step booking flow state machine
-- **useEffect** — data fetching on mount
-- **Context API** — ThemeContext for global dark/light mode
-- **useRef** — auto-focus on the Hero search input
-- **Portals** — cancellation confirmation modal in MyBookingsPage
-- **Conditional rendering** — loading spinner, error state, empty state messages
-- **List rendering** — event cards and booking rows with proper keys
-- **Form handling** — attendee details form with field-level validation
+- **Context API** — `ThemeContext` for dark/light mode, `AuthContext` for simulated user state
+- **useDeferredValue** — non-blocking search filtering on the events listing
+- **defer + Await + Suspense** — streaming deferred data (reviews) on the event details page
+- **Optimistic updates** — like toggle and booking cancellation update the UI before the server responds, with automatic rollback on failure
+- **Loader prefetching** — event data prefetched into TanStack Query cache before the route renders
+- **errorElement** — per-route error boundaries for graceful failure handling
+- **Portals** — cancellation confirmation modal in My Bookings
+- **Component composition** — data flows from page-level hooks down through FilterBar, EventsGrid, EventCard
+- **Conditional rendering** — loading spinners, error states, empty states throughout
+- **Form handling** — attendee details and create event forms with field-level validation
+
+---
+
+## State Management Strategy
+
+| State Type | Tool | Example |
+|---|---|---|
+| Server state | TanStack Query | Events, bookings |
+| Complex form | Redux Toolkit | Create Event wizard |
+| Auth / User | AuthContext | Simulated user |
+| Theme | ThemeContext | Light / dark mode |
+| Local UI | useState / useReducer | Filters, booking steps, tabs |
+| Persistence | localStorage | Favourites, draft, theme |
 
 ---
 
 ## Project Structure
 
 ```
-evently/
-├── evently-api/             ← separate repo for json-server backend
-│   ├── db.json
-│   └── package.json
-│
-└── src/
-    ├── assets/
-    ├── components/
-    │   ├── BookingCard.jsx
-    │   ├── BookingProgress.jsx
-    │   ├── BookingStep1.jsx
-    │   ├── BookingStep2.jsx
-    │   ├── BookingStep3.jsx
-    │   ├── EventCard.jsx
-    │   ├── EventsGrid.jsx
-    │   ├── FeaturedEvents.jsx
-    │   ├── FilterBar.jsx
-    │   ├── Footer.jsx
-    │   ├── FormInput.jsx
-    │   ├── Hero.jsx
-    │   ├── Modal.jsx
-    │   ├── Navbar.jsx
-    │   ├── ScrollToTop.jsx
-    │   └── StatsBar.jsx
-    ├── context/
-    │   └── ThemeContext.jsx
-    ├── data/
-    │   └── db.json
-    ├── hooks/
-    ├── layouts/
-    │   └── RootLayout.jsx
-    ├── loaders/
-    ├── pages/
-    │   ├── BookingPage.jsx
-    │   ├── EventDetailPage.jsx
-    │   ├── EventsPage.jsx
-    │   └── MyBookingsPage.jsx
-    ├── reducers/
-    │   └── bookingReducer.js
-    ├── services/
-    │   └── bookingService.js
-    ├── store/
-    ├── App.css
-    ├── App.jsx
-    ├── components.css
-    ├── index.css
-    └── main.jsx
+src/
+├── assets/
+├── components/
+│   ├── BookingCard.jsx
+│   ├── BookingProgress.jsx
+│   ├── BookingStep1.jsx
+│   ├── BookingStep2.jsx
+│   ├── BookingStep3.jsx
+│   ├── CreateEventStep1.jsx
+│   ├── CreateEventStep2.jsx
+│   ├── CreateEventStep3.jsx
+│   ├── ErrorPage.jsx
+│   ├── EventCard.jsx
+│   ├── EventsGrid.jsx
+│   ├── FilterBar.jsx
+│   ├── Footer.jsx
+│   ├── FormInput.jsx
+│   ├── Hero.jsx
+│   ├── Modal.jsx
+│   ├── Navbar.jsx
+│   ├── ScrollToTop.jsx
+│   └── StatsBar.jsx
+├── context/
+│   ├── AuthContext.jsx
+│   └── ThemeContext.jsx
+├── hooks/
+│   ├── useBookings.js
+│   ├── useEvent.js
+│   └── useEvents.js
+├── layouts/
+│   └── RootLayout.jsx
+├── loaders/
+│   └── eventLoader.js
+├── pages/
+│   ├── BookingPage.jsx
+│   ├── CreateEventPage.jsx
+│   ├── EventDetailPage.jsx
+│   ├── EventsPage.jsx
+│   ├── MyBookingsPage.jsx
+│   └── ProfilePage.jsx
+├── reducers/
+│   └── bookingReducer.js
+├── services/
+│   └── bookingService.js
+├── store/
+│   ├── createEventSlice.js
+│   └── index.js
+├── lib/
+│   └── supabase.js
+├── components.css
+├── index.css
+├── App.jsx
+└── main.jsx
 ```
-
----
-
-## Getting Started
-
-### Prerequisites
-- Node.js v18+
-- npm
-
-### Installation
-
-```bash
-# Clone the repo
-git clone https://github.com/robelCodes/evently.git
-cd evently
-
-# Install frontend dependencies
-npm install
-
-# Install json-server globally (if not already installed)
-npm install -g json-server
-```
-
-### Running Locally
-
-Open two terminals:
-
-```bash
-# Terminal 1 — start the mock backend
-json-server --watch db.json --port 3001
-
-# Terminal 2 — start the React app
-npm run dev
-```
-
-Then open [http://localhost:5173](http://localhost:5173).
 
 ---
 
@@ -173,20 +188,7 @@ This approach kept full control over the design system without the overhead of l
 
 ---
 
-## API Endpoints (json-server)
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/events` | Fetch all events |
-| GET | `/events/:id` | Fetch a single event |
-| GET | `/bookings?userId=user1` | Fetch user bookings |
-| POST | `/bookings` | Create a new booking |
-| PATCH | `/bookings/:id` | Update booking (cancellation) |
-
----
-
 ## Known Limitations
 
 - No real authentication — user is hardcoded as `user1`
-- Favourites are not persisted (local component state only)
-- json-server is a mock backend and not suitable for production use
+- Reviews on the event details page are simulated with a 1.5s delay to demonstrate the `defer` streaming pattern
